@@ -1,6 +1,8 @@
 $srcRoot     = "G:\TestFolder\src"    # location of the BKT'd images
 $dstRoot     = "G:\TestFolder\dst"    # location to copy files to
 $globs       = 'DSCF*.RAF'            # Fuji RAW file pattern, the '*' represents the sequence num
+$startFilSeq = 2                      # if BKT is -1,0,1 ... then the 2nd file is the normal exposure
+$currFilSeq  = 1                      # counter for index of file in src directory
 $nextSeq     = -1                     # numeric sequence of next file to copy
 $seqInterval = 3                      # number of files in BKT sequence, 3 for BKT of -1,0,1, 5 for -2,-1,0,1,2, etc.
 
@@ -15,7 +17,7 @@ Get-ChildItem -Path $srcRoot | ForEach-Object {
 
       # first time through the items
       if ( $nextSeq -lt 0 ) {
-        $nextSeq = $numSeq
+        $nextSeq = [int]$numSeq + [int]$startFilSeq - 1
       }
 
       # if first time through, this will alway be true
