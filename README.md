@@ -10,5 +10,5 @@ If the BKT sequence is +1,0,1 then copy every 3rd file to the destination direct
 If the BKT sequence is -2,-1,0,1,2 then copy every 5th file, etc.
 
 Be sure to set source and destination directories...
-$srcRoot     = "G:\TestFolder\src"    # location of the BKT'd images
-$dstRoot     = "G:\TestFolder\dst"    # location to copy files to
+    $srcRoot     = "G:\TestFolder\src"    # location of the BKT'd images
+    $dstRoot     = "G:\TestFolder\dst"    # location to copy files to
